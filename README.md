@@ -1,3 +1,5 @@
+This is an add-on to the boilerplate created [here](https://github.com/tomaszbujnowicz/laravel-mix-tailwindcss-purgecss/blob/master/package.json) by [tomaszbujnowicz](https://github.com/tomaszbujnowicz)
+
 # Minimal Boilerplate for building static pages.
 
 ## 🚀 Laravel Mix 6, TailwindCSS 2, PostCSS 8, and ES6 Vanilla JS components.
