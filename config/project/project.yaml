@@ -1,0 +1,22 @@
+dateModified: 1610516452
+email:
+  fromEmail: cassady@transom.design
+  fromName: boiler-template
+  transportType: craft\mail\transportadapters\Sendmail
+plugins:
+  twigpack:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+system:
+  edition: solo
+  live: true
+  name: boiler-template
+  schemaVersion: 3.5.13
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  requireEmailVerification: true

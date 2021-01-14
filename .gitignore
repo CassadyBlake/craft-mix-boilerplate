@@ -1,0 +1,30 @@
+/.env
+/.idea
+/vendor
+.DS_Store
+node_modules
+
+# CRAFT STORAGE
+/storage/*
+!/storage/.gitkeep
+
+# ASSETS
+/web/assets/*
+/web/cpresources/*
+/web/dist/*
+!/web/index.php
+/web/mix-manifest.json
+/web/hot
+
+# BUILD FILES
+/bower_components/*
+/build/*
+/yarn-error.log
+/npm-debug.log
+
+# TRANSCODER
+/web/transcoder/*
+
+# IMAGE TRANSFORMS
+/web/uploads/**/[_]*/
+/web/imager/*
