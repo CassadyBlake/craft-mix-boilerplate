@@ -9,7 +9,7 @@ const config = {
   // Paths to observe for changes then trigger a full page reload
   devWatchPaths: ["templates", "src"],
   // Port to use with webpack-dev-server
-  devServerPort: 6060,
+  devServerPort: 5050,
   // Folders where purgeCss can look for used selectors
   purgeCssGrabFolders: ["src", "templates"],
   // Urls for CriticalCss to look for "above the fold" Css
@@ -52,7 +52,7 @@ mix
 
   // BrowserSync
   .browserSync({
-    port: '5050',
+    port: config.devServerPort,
     proxy: config.devProxyDomain,
     serveStatic: ['dist/css/style.css', 'dist/js/app.js'],
     files: [
