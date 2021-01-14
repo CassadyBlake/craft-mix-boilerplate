@@ -1,4 +1,4 @@
-This is an add-on to the boilerplate created [here](https://github.com/tomaszbujnowicz/laravel-mix-tailwindcss-purgecss/blob/master/package.json) by [tomaszbujnowicz](https://github.com/tomaszbujnowicz)
+### *This is an add-on to the boilerplate created* [here](https://github.com/tomaszbujnowicz/laravel-mix-tailwindcss-purgecss/blob/master/package.json) *by* [tomaszbujnowicz](https://github.com/tomaszbujnowicz)
 
 # Minimal Boilerplate for building static pages.
 
