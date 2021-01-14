@@ -7,11 +7,11 @@ const config = {
   // Dev domain to proxy
   devProxyDomain: process.env.SITE_URL || "https://boiler-template.ddev.site",
   // Paths to observe for changes then trigger a full page reload
-  devWatchPaths: ["templates", "src"],
+  // devWatchPaths: ["templates", "src"],
   // Port to use with webpack-dev-server
   devServerPort: 5050,
   // Folders where purgeCss can look for used selectors
-  purgeCssGrabFolders: ["src", "templates"],
+  // purgeCssGrabFolders: ["src", "templates"],
   // Urls for CriticalCss to look for "above the fold" Css
   criticalCssUrls: [
     // { urlPath: "/", label: "index" },
