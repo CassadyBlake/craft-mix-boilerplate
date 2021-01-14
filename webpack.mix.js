@@ -27,10 +27,10 @@ const config = {
 mix
   .setPublicPath('web/dist')
   // JS
-  .js('./src/js/app.js', 'web/dist/js/app.js')
+  .js('./src/js/app.js', './web/dist/js')
 
   // CSS
-  .postCss('./src/css/style.css', 'web/dist/css/style.css', [
+  .postCss('./src/css/style.css', './web/dist/css/style.css', [
     require('postcss-import'),
     require('tailwindcss'),
     require('postcss-nested'),
@@ -54,25 +54,27 @@ mix
   .browserSync({
     port: '5050',
     proxy: config.devProxyDomain,
-    serveStatic: ['src/css/style.css', 'src/js/app.js'],
+    serveStatic: ['dist/css/style.css', 'dist/js/app.js'],
     files: [
       'web/uploads/**/*.{jpg,jpeg,png,gif,svg}',
-      'src/css/**/*.css',
-      'src/js/**/*.js',
+      'dist/css/**/*.css',
+      'dist/js/**/*.js',
       'templates/**/*.twig'
     ],
+    snippetOptions: {
+      rule: {
+        match: /<\/head>/i,
+        fn: function (snippet, match) {
+            return '<link rel="stylesheet" type="text/css" href="/dist/css/style.css"/>' + snippet + match;
+        }
+      }
+    },
     // snippetOptions: {
-    //   rule: [{
-    //     match: /<\/head>/i,
-    //     fn: function (snippet, match) {
-    //         return '<link rel="stylesheet" type="text/css" href="/dist/css/style.css"/>' + snippet + match;
-    //     }
-    //   },
-    //   {
+    //   rule: {
     //     match: /<\/body>/i,
     //       fn: function (snippet, match) {
     //           return '<script type="text/javascript" src="/dist/js/app.js"/>' + snippet + match;
     //       }
-    //   }]
+    //   }
     // }
   })
