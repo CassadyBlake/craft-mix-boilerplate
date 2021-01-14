@@ -5,7 +5,7 @@ require('laravel-mix-eslint');
 // 🎚️ Base config
 const config = {
   // Dev domain to proxy
-  devProxyDomain: process.env.SITE_URL || "https://boiler-template.ddev.site",
+  devProxyDomain: process.env.SITE_URL || "https://127.0.0.1:32821",
   // Paths to observe for changes then trigger a full page reload
   // devWatchPaths: ["templates", "src"],
   // Port to use with webpack-dev-server
@@ -54,21 +54,21 @@ mix
   .browserSync({
     port: config.devServerPort,
     proxy: config.devProxyDomain,
-    serveStatic: ['dist/css/style.css', 'dist/js/app.js'],
+    serveStatic: ['.', './dist/js'],
     files: [
       'web/uploads/**/*.{jpg,jpeg,png,gif,svg}',
       'dist/css/**/*.css',
       'dist/js/**/*.js',
       'templates/**/*.twig'
     ],
-    snippetOptions: {
-      rule: {
-        match: /<\/head>/i,
-        fn: function (snippet, match) {
-            return '<link rel="stylesheet" type="text/css" href="/dist/css/style.css"/>' + snippet + match;
-        }
-      }
-    },
+    // snippetOptions: {
+    //   rule: {
+    //     match: /<\/head>/i,
+    //     fn: function (snippet, match) {
+    //         return '<link rel="stylesheet" type="text/css" href="/dist/css/style.css"/>' + snippet + match;
+    //     }
+    //   }
+    // },
     // snippetOptions: {
     //   rule: {
     //     match: /<\/body>/i,
