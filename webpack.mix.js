@@ -73,7 +73,7 @@ mix
     //   rule: {
     //     match: /<\/body>/i,
     //       fn: function (snippet, match) {
-    //           return '<script type="text/javascript" src="/dist/js/app.js"/>' + snippet + match;
+    //           return '<script type="text/javascript" src="/dist/js/app.js"></script>' + snippet + match;
     //       }
     //   }
     // }
