@@ -6,9 +6,11 @@
     <title>Welcome to Craft CMS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
     {% block headLinks %}
-        {{ craft.twigpack.includeCriticalCssTags() }}
-        {{ craft.twigpack.includeCssModule("/dist/css/style.css") }}
+        {# {{ craft.twigpack.includeCriticalCssTags() }}
+        {{ craft.twigpack.includeCssModule("/dist/css/style.css") }} #}
     {% endblock headLinks %}
+
+    <link rel="stylesheet" type="text/css" href="/dist/css/style.css"/>
     <meta name="referrer" content="origin-when-cross-origin" />
     <style>
         html,
@@ -157,18 +159,18 @@
 </head>
 <body class="ltr">
     {{ beginBody() }}
-    <div class="bg-black z-20 h-10 w-full"></div>
+    <div class="bg-black z-20 h-10 w-1/4"></div>
         <main class="" id="main">
         {% block bodyContent %}
 
         {% endblock bodyContent %}
         </main>
-
+        <script type="text/javascript" src="/dist/js/app.js"></script>
         {#-- Site-wide JavaScript --#}
-        {{ craft.twigpack.includeSafariNomoduleFix() }}
+        {# {{ craft.twigpack.includeSafariNomoduleFix() }}
         {{ craft.twigpack.includeJsModule("/dist/manifest.js") }}
         {{ craft.twigpack.includeJsModule("/dist/vendor.js") }}
-        {{ craft.twigpack.includeJsModule("/dist/js/app.js") }}
+        {{ craft.twigpack.includeJsModule("/dist/js/app.js") }} #}
 
         {# -- Any JavaScript that should be included before </body> -- #}
         {% block bodyJs %}{% endblock bodyJs %}
