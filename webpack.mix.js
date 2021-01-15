@@ -23,9 +23,30 @@ const config = {
   publicBuildFolder: "dist",
 };
 
+/**
+ * 🎭 Hashing (for non-static sites)
+ * Mix has querystring hashing by default, eg: main.css?id=abcd1234
+ * This script converts it to filename hashing, eg: main.abcd1234.css
+ * https://github.com/JeffreyWay/laravel-mix/issues/1022#issuecomment-379168021
+ */
+if (mix.inProduction()) {
+  // Allow versioning in production
+  mix.version();
+  // Get the manifest filepath for filehash conversion
+  const manifestPath = path.join(config.publicFolder, "mix-manifest.json");
+  // Run after mix finishes
+  mix.then(() => {
+    const convertToFileHash = require("laravel-mix-make-file-hash");
+    convertToFileHash({
+      publicPath: config.publicFolder,
+      manifestFilePath: manifestPath,
+    });
+  });
+}
+
 
 mix
-  .setPublicPath('web/dist')
+  .setPublicPath(config.publicFolder)
   // JS
   .js('./src/js/app.js', './web/dist/js')
 
@@ -44,11 +65,8 @@ mix
     }
   })
 
-  // Copy HTML files
-  // .copy('src/*.html', 'web/dist')
-
   // Copy Image directory
-  .copyDirectory('src/img', 'web/dist/img')
+  // .copyDirectory('src/img', 'web/dist/img')
 
   // BrowserSync
   .browserSync({
@@ -59,24 +77,8 @@ mix
     }],
     files: [
       'web/uploads/**/*.{jpg,jpeg,png,gif,svg}',
-      'dist/css/**/*.css',
-      'dist/js/**/*.js',
+      'src/css/**/*.css',
+      'src/js/**/*.js',
       'templates/**/*.twig'
-    ],
-    // snippetOptions: {
-    //   rule: {
-    //     match: /<\/head>/i,
-    //     fn: function (snippet, match) {
-    //         return '<link rel="stylesheet" type="text/css" href="/dist/css/style.css"/>' + snippet + match;
-    //     }
-    //   }
-    // },
-    // snippetOptions: {
-    //   rule: {
-    //     match: /<\/body>/i,
-    //       fn: function (snippet, match) {
-    //           return '<script type="text/javascript" src="/dist/js/app.js"></script>' + snippet + match;
-    //       }
-    //   }
-    // }
+    ]
   })
