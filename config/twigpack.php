@@ -23,8 +23,8 @@ return [
         ],
         // webpack-dev-server config
         'devServer' => [
-            'manifestPath' => 'http://localhost:5050/',
-            'publicPath' => 'http://localhost:5050/',
+            'manifestPath' => 'http://localhost:8080/',
+            'publicPath' => 'http://localhost:8080/',
         ],
         // Bundle to use with the webpack-dev-server
         // 'devServerBuildType' => 'modern',

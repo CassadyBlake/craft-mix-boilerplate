@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
     {% block headLinks %}
         {{ craft.twigpack.includeCriticalCssTags() }}
-        {{ craft.twigpack.includeCssModule("/dist/css/style.css") }}
+        {{ craft.twigpack.includeCssModule("/dist/style.css") }}
     {% endblock headLinks %}
 
     <meta name="referrer" content="origin-when-cross-origin" />
@@ -158,7 +158,7 @@
 </head>
 <body class="ltr">
     {{ beginBody() }}
-    <div class="bg-white z-20 h-10 w-1/4"></div>
+    <div class="main z-20 h-10 w-1/2"></div>
         <main class="" id="main">
         {% block bodyContent %}
 
@@ -168,7 +168,7 @@
         {{ craft.twigpack.includeSafariNomoduleFix() }}
         {{ craft.twigpack.includeJsModule("/dist/manifest.js") }}
         {{ craft.twigpack.includeJsModule("/dist/vendor.js") }}
-        {{ craft.twigpack.includeJsModule("/dist/js/app.js") }}
+        {{ craft.twigpack.includeJsModule("/dist/app.js") }}
 
         {# -- Any JavaScript that should be included before </body> -- #}
         {% block bodyJs %}{% endblock bodyJs %}
