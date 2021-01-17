@@ -1,0 +1,38 @@
+{% extends '_layouts/global-variables' %}
+
+{# -- Twig output from the render; this must be in a block -- #}
+{% block htmlPage %}
+<!DOCTYPE html>
+<html lang="{{craft.app.language}}">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+    <title>{{siteName}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    {% block headLinks %}
+        {{ craft.twigpack.includeCriticalCssTags() }}
+        {{ craft.twigpack.includeCssModule("/dist/style.css") }}
+    {% endblock headLinks %}
+
+    <meta name="referrer" content="origin-when-cross-origin" />
+    <style> {# Initial Styles... #} </style>
+</head>
+<body class="ltr">
+    {{ beginBody() }}
+        <main class="" id="main">
+        {% block bodyContent %}
+
+        {% endblock bodyContent %}
+        </main>
+        {#-- Site-wide JavaScript --#}
+        {{ craft.twigpack.includeSafariNomoduleFix() }}
+        {{ craft.twigpack.includeJsModule("/dist/manifest.js") }}
+        {{ craft.twigpack.includeJsModule("/dist/vendor.js") }}
+        {{ craft.twigpack.includeJsModule("/dist/app.js") }}
+
+        {# -- Any JavaScript that should be included before </body> -- #}
+        {% block bodyJs %}{% endblock bodyJs %}
+    {{ endBody() }}
+</body>
+</html>
+{% endblock %}

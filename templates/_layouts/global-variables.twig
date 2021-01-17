@@ -1,0 +1,29 @@
+{# -- Root global variables that all templates inherit from -- #}
+{# -- This allows for defining site-wide Twig variables as needed -- #}
+
+{% spaceless %}
+    {# Get the current environment ('dev', 'staging', or 'production') #}
+    {% set env = getenv('ENVIRONMENT') %}
+    {% set siteUrl = alias('@web') ~ '/' %}
+    {% set headers = craft.app.request.getHeaders() %}
+    {% set referrerHeader = craft.app.request.getReferrer() %}
+    {% set remoteHost = craft.app.request.getRemoteHost() %}
+
+    {# -- Prefetch & preconnect headers and links -- #}
+    {% set prefetchUrls = ['dist/'] %}
+
+    {# -- General global variables -- #}
+    {% set baseUrl = 'dist/' %}
+    {% set currentUrl = craft.app.request.url %}
+    {% set gaTrackingId = getenv('GA_TRACKING_ID') %}
+    {% set homepage = currentUrl == '/' ? true : false %}
+    
+    {# Example for channel or blog entries... #}
+    {# {% set channelEntry = currentUrl matches '{^/channel/...}' ? true : false %} #}
+
+
+    {# -- Twig output from the render; this must be in a block -- #}
+    {% block htmlPage %}
+
+    {% endblock %}
+{% endspaceless %}
