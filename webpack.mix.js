@@ -17,8 +17,9 @@ const config = {
 
 
 // JS
-mix.js('./src/js/app.js', 'dist')
-  .postCss('./src/css/style.css', 'dist', [
+mix
+  .js('./src/js/app.js', 'dist')
+  .postCss('./src/css/style.css', 'dist/style.css', [
     require('postcss-import'),
     require('tailwindcss'),
     require('postcss-nested'),
@@ -40,26 +41,22 @@ if (mix.inProduction()) {
   
 
 // Options
-mix.options({
-  processCssUrls: false,
-  terser: {
-    extractComments: false, // Stop Mix from generating license file
-  }
-})
+// mix.options({
+//   processCssUrls: false,
+//   // terser: {
+//   //   extractComments: false, // Stop Mix from generating license file
+//   // }
+// })
 
 // Copy Image directory
 // .copyDirectory('src/img', 'web/dist/img')
 
 // BrowserSync
-.browserSync({
-  // port: config.devServerPort,
+mix.browserSync({
   proxy: config.devProxyDomain,
-  // serveStatic: [{
-  //   route: 'dist',
-  //   dir: 'web/dist'
-  // }],
   files: [
-    'src/**/*.css',
+    'web/**/*.js',
+    'web/**/*.css',
     'templates/**/*'
   ]
 })
