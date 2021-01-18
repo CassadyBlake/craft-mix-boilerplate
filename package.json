@@ -31,5 +31,9 @@
     "postcss-import": "^14.0.0",
     "postcss-nested": "^5.0.3",
     "tailwindcss": "^2.0.2"
+  },
+  "dependencies": {
+    "lazysizes": "^5.3.0",
+    "masonry-layout": "^4.2.2"
   }
 }

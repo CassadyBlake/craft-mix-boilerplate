@@ -2,4 +2,22 @@
 
 {% block bodyContent %}
 <h1 class="text-gray-500">HOME</h1>
+<section class="section flex flex-row justify-center">
+  <div class="masonry-grid w-auto">
+    <div class="masonry-gutter-sizer"></div>  
+    <div class="masonry-sizer"></div>  
+    <div class="masonry-item">
+        <div class="lazyload image-cover aspect-2/3" data-bgset="dist/img/space_1.jpg" ></div>
+    </div>
+    <div class="masonry-item">
+      <div class="lazyload image-cover aspect-2/3" data-bgset="dist/img/space_2.jpg" ></div>
+    </div>
+    <div class="masonry-item">
+      <div class="lazyload image-cover aspect-2/3" data-bgset="dist/img/space_3.jpg" ></div>
+    </div>
+    <div class="masonry-item">
+      <div class="lazyload image-cover aspect-2/3" data-bgset="dist/img/space_4.jpg" ></div>
+    </div>
+  </div>
+</section>
 {% endblock bodyContent %}

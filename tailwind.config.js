@@ -9,6 +9,7 @@
 module.exports = {
   purge: {
     content: [
+      './templates/**/*.twig',
       './src/**/*.html',
       './src/**/*.php',
       './src/**/*.liquid',

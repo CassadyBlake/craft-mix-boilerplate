@@ -49,7 +49,7 @@ if (mix.inProduction()) {
 // })
 
 // Copy Image directory
-// .copyDirectory('src/img', 'web/dist/img')
+mix.copyDirectory('./src/img', 'web/dist/img')
 
 // BrowserSync
 mix.browserSync({

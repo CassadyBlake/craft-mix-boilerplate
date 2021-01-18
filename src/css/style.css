@@ -7,3 +7,10 @@
 
 /* Utilities */
 @import "tailwindcss/utilities";
+
+/* Global */
+@import './global/images.css';
+@import './global/base.css';
+
+/* Pages */
+@import './pages/home.css';

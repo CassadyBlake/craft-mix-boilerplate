@@ -1,0 +1,7 @@
+.masonry-sizer,
+.masonry-item {
+    width: 400px; }
+
+.masonry-gutter-sizer {
+    width: 10px;
+}
