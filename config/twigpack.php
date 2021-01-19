@@ -3,7 +3,7 @@ return [
     // Global settings
     '*' => [
         // If `devMode` is on, use webpack-dev-server to all for HMR (hot module reloading)
-        'useDevServer' => false,
+        'useDevServer' => true,
         // Enforce Absolute URLs on includes
         'useAbsoluteUrl' => true,
         // The JavaScript entry from the manifest.json to inject on Twig error pages
@@ -23,8 +23,8 @@ return [
         ],
         // webpack-dev-server config
         'devServer' => [
-            'manifestPath' => 'http://localhost:8080/',
-            'publicPath' => 'http://localhost:8080/',
+            'manifestPath' => 'http://localhost:3000/',
+            'publicPath' => 'http://localhost:3000/',
         ],
         // Bundle to use with the webpack-dev-server
         // 'devServerBuildType' => 'modern',
@@ -50,6 +50,6 @@ return [
     // Development environment
     'dev' => [
         // If `devMode` is on, use webpack-dev-server to all for HMR (hot module reloading)
-        'useDevServer' => false,
+        'useDevServer' => true,
     ],
 ];

@@ -4,6 +4,6 @@
 
 export default function() {
 
-  console.log('Hello There All!');
+  console.log('Hello There Folks!');
 
 }

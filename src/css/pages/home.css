@@ -2,6 +2,14 @@
 .masonry-item {
     width: 400px; }
 
+.masonry-item {
+    margin-bottom: 10px;
+}
+
 .masonry-gutter-sizer {
     width: 10px;
+}
+
+.home-page {
+    @apply bg-gray-50 p-20;
 }

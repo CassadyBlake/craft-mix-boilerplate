@@ -19,7 +19,7 @@ const config = {
 // JS
 mix
   .js('./src/js/app.js', 'dist')
-  .postCss('./src/css/style.css', 'dist/style.css', [
+  .postCss('./src/css/style.css', 'dist', [
     require('postcss-import'),
     require('tailwindcss'),
     require('postcss-nested'),
@@ -58,5 +58,8 @@ mix.browserSync({
     'web/**/*.js',
     'web/**/*.css',
     'templates/**/*'
-  ]
+  ],
+  // Set 'injectChanges' to true for css injection on changes with no page reload (hot module reload)...
+  // * * * if true be aware that if a div is dependant on/created by a .js script it will not update without a reload. Example: masonry.js grid-items. * * *
+  injectChanges: false,
 })
