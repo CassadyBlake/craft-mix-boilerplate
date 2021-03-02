@@ -1,0 +1,18 @@
+contentColumnType: string
+fieldGroup: 7bbe3ae9-05df-4753-8fc8-a53268aaf44e
+handle: homeInfo
+instructions: ''
+name: 'home Info'
+searchable: false
+settings:
+  contentTable: '{{%stc_homeinfo}}'
+  fieldLayout: row
+  maxRows: ''
+  minRows: ''
+  placeholderKey: null
+  propagationMethod: all
+  selectionLabel: ''
+  staticField: '1'
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

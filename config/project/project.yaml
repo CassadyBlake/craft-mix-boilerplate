@@ -1,9 +1,13 @@
-dateModified: 1610848414
+dateModified: 1614628959
 email:
   fromEmail: cassady@transom.design
   fromName: boiler-template
   transportType: craft\mail\transportadapters\Sendmail
 plugins:
+  super-table:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.2.1
   twigpack:
     edition: standard
     enabled: true

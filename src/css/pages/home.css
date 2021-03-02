@@ -9,7 +9,3 @@
 .masonry-gutter-sizer {
     width: 10px;
 }
-
-.home-page {
-    @apply bg-gray-50 p-20;
-}

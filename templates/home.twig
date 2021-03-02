@@ -1,23 +1,50 @@
 {% extends "_layouts/base.twig" %}
 
+{% set img2000 = {
+    mode: 'crop',
+    width: 2000,
+    quality: 70
+} %}
+
+{% set img1024 = {
+    mode: 'crop',
+    width: 1024,
+    quality: 70
+} %}
+
+{% set img640 = {
+    mode: 'crop',
+    width: 640,
+    quality: 70
+} %}
+
 {% block bodyContent %}
-<h1 class="text-gray-500 text-center p-20">Boiler Template running at {{siteUrl}}</h1>
-<section class="home-page section flex flex-row justify-center">
-  <div class="masonry-grid w-auto">
+<section class="py-20 text-center bg-gray">
+  <div class="container mx-auto">
+    <h1 class="text-black c-h3">{{ entry.homeInfo.heading }}</h1>
+    <h5 class="text-blue-light c-h5">Boiler Template running at {{siteUrl}}</h5>
+  </div>
+</section>
+<section class="bg-blue section flex flex-row justify-center py-20">
+  <div class="container mx-auto masonry-grid w-auto">
     <div class="masonry-gutter-sizer"></div>  
     <div class="masonry-sizer"></div>  
-    <div class="masonry-item">
-        <div class="lazyload image-cover aspect-2/3" data-bgset="dist/img/space_1.jpg" ></div>
-    </div>
-    <div class="masonry-item">
-      <div class="lazyload image-cover aspect-2/3" data-bgset="dist/img/space_2.jpg" ></div>
-    </div>
-    <div class="masonry-item">
-      <div class="lazyload image-cover aspect-2/3" data-bgset="dist/img/space_3.jpg" ></div>
-    </div>
-    <div class="masonry-item">
-      <div class="lazyload image-cover aspect-2/3" data-bgset="dist/img/space_4.jpg" ></div>
-    </div>
+    {% if entry.homeInfo.imageGallery|length %}
+      {% for item in entry.homeInfo.imageGallery.all() %}
+      <div class="masonry-item">
+        {% set image = item %}
+        {% set position = image.getFocalPoint()['x'] * 100 ~ '% ' ~ image.getFocalPoint()['y'] * 100 ~ '%' %}
+        <div 
+          class="lazyload image-cover aspect-2/3" 
+          data-bgset="
+            {{image.getUrl(img2000)}} 2000w,
+            {{image.getUrl(img1024)}} 1024w,
+            {{image.getUrl(img640)}} 640w," 
+          data-sizes="auto"
+        ></div>
+      </div>
+      {% endfor %}
+    {% endif %}
   </div>
 </section>
 {% endblock bodyContent %}
