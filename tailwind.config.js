@@ -1,3 +1,13 @@
+// Conversions for px -> rem, em or relative...
+const round = (num) =>
+  num
+    .toFixed(7)
+    .replace(/(\.[0-9]+?)0+$/, "$1")
+    .replace(/\.0$/, "");
+const rem = (px) => `${round(px / 16)}rem`;
+const em = (px, base) => `${round(px / base)}em`;
+const rel = (px, base) => round(px / base);
+
 module.exports = {
   purge: [],
   darkMode: false, // or 'media' or 'class'
@@ -29,19 +39,19 @@ module.exports = {
       serif: ['Merriweather', 'serif'],
     },
     fontSize: {
-      xxs: "0.75rem", // 12px
-      xs: "0.875rem", // 14px
-      sm: "1rem", // 16px
-      base: "1.125rem", // 18px
-      lg: "1.3125rem", // 21px
-      xl: "1.25rem", // 20px
-      "2xl": "1.5rem", // 24px
-      "3xl": "2.125rem", // 34px
-      "4xl": "3rem", // 48px
-      "5xl": "3.75rem", // 60px
-      "6xl": "4.5rem", // 72px
-      caption: "0.75rem", // 12px
-      overline: "0.75rem", // 12px
+      xxs: rem(9), // 9px
+      xs: rem(12), // 12px
+      sm: rem(14), // 14px
+      base: rem(16), // 16px
+      lg: rem(18), // 18px
+      xl: rem(20), // 20px
+      "2xl": rem(24), // 24px
+      "3xl": rem(34), // 34px
+      "4xl": rem(48), // 48px
+      "5xl": rem(60), // 60px
+      "6xl": rem(72), // 72px
+      caption: rem(12), // 12px
+      overline: rem(12), // 12px
     },
     textStyles: theme => ({ // defaults to {}
       heading: {
